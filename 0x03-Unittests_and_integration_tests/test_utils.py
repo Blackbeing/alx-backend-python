@@ -23,6 +23,14 @@ class TestAccessNestedMap(unittest.TestCase):
         """Test the function using parameterized objects"""
         self.assertEqual(access_nested_map(nested_map, path), expected)
 
+    @parameterized.expand([({}, ("a",), KeyError), ({"a": 1}, ("a", "b"), KeyError)])
+    def test_access_nested_map_exception(
+        self, nested_map: dict, path: Tuple[str], exception: Exception
+    ):
+        """Use parameterized testing to test nested map"""
+        with self.assertRaises(exception):
+            access_nested_map(nested_map, path)
+
 
 if __name__ == "__main__":
     unittest.main()
