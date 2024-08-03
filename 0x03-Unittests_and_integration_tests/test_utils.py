@@ -36,6 +36,15 @@ class TestAccessNestedMap(unittest.TestCase):
 
 
 class TestGetJson(unittest.TestCase):
+    """
+    This class contains unit tests for the get_json method. Each test case
+    uses parameterized.expand to test different URLs and payloads.
+
+    Attributes:
+        test_url (str): The URL being tested.
+        test_payload (dict): The payload being tested.
+    """
+
     @parameterized.expand(
         [
             ("http://example.com", {"payload": True}),
